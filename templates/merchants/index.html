@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <form action="/merchants" method="post">
+        <label for="name">New Merchant</label>
+        <input type="text" id="name" name="name" required autofocus>
+        <button type="submit">Add Merchant</button>
+    </form>
     <ul>
         {% for merchant in merchants %}
             <li>
