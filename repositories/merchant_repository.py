@@ -28,6 +28,23 @@ def save(merchant):
     return merchant
 
 # Select
+def select(id):
+    merchant = None
+    sql = "SELECT * FROM merchants WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
+    if result is not None:
+        merchant = Merchant(result['name'], result['id'])
+    return merchant
 
 # Update
+def update(merchant):
+    sql = "UPDATE merchants SET (name) = (%s) WHERE id = %s"
+    values = [merchant.name, merchant.id]
+    run_sql(sql, values)
+
+# Delete all
+def delete_all():
+    sql = "DELETE FROM merchants"
+    run_sql(sql)

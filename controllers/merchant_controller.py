@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, Blueprint, redirect, render_template, request
 from models.merchant import Merchant
 import repositories.merchant_repository as merchant_repository
@@ -19,4 +20,17 @@ def create_merchant():
     name = request.form['name']
     merchant = Merchant(name)
     merchant_repository.save(merchant)
+    return redirect('/merchants')
+
+@merchants_blueprint.route('/merchants/<id>/edit')
+def edit_merchant(id):
+    merchant = merchant_repository.select(id)
+    merchants = merchant_repository.select_all()
+    return render_template('merchants/edit.html', merchants=merchants, merchant=merchant)
+
+@merchants_blueprint.route('/merchants/<id>', methods=['POST'])
+def update_merchant(merchant):
+    name = request.form['name']
+    merchant = Merchant(name, id)
+    merchant_repository.update(merchant)
     return redirect('/merchants')

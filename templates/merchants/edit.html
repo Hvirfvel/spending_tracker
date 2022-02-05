@@ -3,14 +3,18 @@
 {% block content %}
     <form action="/merchants" method="post">
         <label for="name">New Merchant</label>
-        <input type="text" id="name" name="name" required autofocus>
+        <input type="text" id="name" name="name">
         <button type="submit">Add Merchant</button>
+    </form>
+    <form action="/merchants" method="post">
+        <label for="name">Change merchant name:</label>
+        <input type="text" id="name" name="name" value="{{ merchant.name }}" required autofocus>
+        <button type="submit">Update</button>
     </form>
     <ul>
         {% for merchant in merchants %}
             <li>
                 <h2>{{ merchant.name }}</h2>
-                <button><a href="/merchants/{{ merchant.id }}/edit">Edit</a></button>
             </li>
         {% endfor %}
     </ul>
