@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask, Blueprint, redirect, render_template, request
 from models.merchant import Merchant
 import repositories.merchant_repository as merchant_repository
@@ -7,7 +6,7 @@ merchants_blueprint = Blueprint('merchants', __name__)
 
 
 @merchants_blueprint.route('/merchants')
-def new_merchant_current_merchants():
+def index():
     merchants = merchant_repository.select_all()
     return render_template('merchants/index.html', merchants=merchants)
 
