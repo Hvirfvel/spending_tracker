@@ -1,6 +1,6 @@
-DROP TABLE merchants
+DROP TABLE IF EXISTS merchants;
 
 CREATE TABLE merchants (
     id SERIAL PRIMARY KEY,
-    name VARCHART(255)
-)
+    name VARCHAR(255)
+);
