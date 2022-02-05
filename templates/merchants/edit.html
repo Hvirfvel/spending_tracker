@@ -6,9 +6,9 @@
         <input type="text" id="name" name="name">
         <button type="submit">Add Merchant</button>
     </form>
-    <form action="/merchants" method="post">
-        <label for="name">Change merchant name:</label>
-        <input type="text" id="name" name="name" value="{{ merchant.name }}" required autofocus>
+    <form action="/merchants/{{ merchant.id }}" method="post">
+        <label for="updated_name">Change merchant name:</label>
+        <input type="text" id="updated_name" name="updated_name" value="{{ merchant.name }}" required autofocus>
         <button type="submit">Update</button>
     </form>
     <ul>
