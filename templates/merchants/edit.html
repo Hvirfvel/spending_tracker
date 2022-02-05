@@ -3,7 +3,7 @@
 {% block content %}
     <form action="/merchants" method="post">
         <label for="name">New Merchant</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" required>
         <button type="submit">Add Merchant</button>
     </form>
     <form action="/merchants/{{ merchant.id }}" method="post">

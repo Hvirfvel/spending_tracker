@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/tags" method="post">
+        <label for="name">New Tag</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Add Tag</button>
+    </form>
+    <form action="/tags/{{ tag.id }}" method="post">
+        <label for="updated_name">Change tag name:</label>
+        <input type="text" id="updated_name" name="updated_name" value="{{ tag.name }}" required autofocus>
+        <button type="submit">Update</button>
+    </form>
+    <ul>
+        {% for tag in tags %}
+            <li>
+                <h2>{{ tag.name }}</h2>
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

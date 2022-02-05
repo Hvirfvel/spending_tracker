@@ -33,13 +33,13 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
 
-    if tag is not None:
+    if result is not None:
         tag = Tag(result['name'], result['id'])
     return tag
 
 # Update
 def update(tag):
-    sql = "UPDATE merchants SET name = %s WHERE id = %s"
+    sql = "UPDATE tags SET name = %s WHERE id = %s"
     values = [tag.name, tag.id]
     run_sql(sql, values)
 
