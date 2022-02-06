@@ -46,3 +46,6 @@ def select_all():
 
 
 # delete all
+def delete_all():
+    sql = "DELETE FROM transactions"
+    run_sql(sql)
