@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="/merchants" method="post">
-        <label for="name">New Merchant</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Add Merchant</button>
-    </form>
-    <form action="/merchants/{{ merchant.id }}" method="post">
-        <label for="updated_name">Change merchant name:</label>
-        <input type="text" id="updated_name" name="updated_name" value="{{ merchant.name }}" required autofocus>
-        <button type="submit">Update</button>
-    </form>
-    <ul>
-        {% for merchant in merchants %}
-            <li>
-                <h2>{{ merchant.name }}</h2>
-            </li>
-        {% endfor %}
-    </ul>
+
+    <aside>
+        <form action="/merchants" method="post">
+            <label for="name">New Merchant</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Add Merchant</button>
+        </form>
+    </aside>
+    <section>
+        <form action="/merchants/{{ merchant.id }}" method="post">
+            <label for="updated_name">Change merchant name:</label>
+            <input type="text" id="updated_name" name="updated_name" value="{{ merchant.name }}" required autofocus>
+            <button type="submit">Update</button>
+        </form>
+    </section>
+    <section>
+        <h2>Current merchants</h2>
+        <ul>
+            {% for merchant in merchants %}
+                <li>
+                    {{ merchant.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
     
 {% endblock %}

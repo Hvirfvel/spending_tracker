@@ -1,21 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="/transactions/new">New Transaction</a>    
-
-    <ul>
-        {% for transaction in transactions %}
-            <li>
-                {{ transaction.amount }}
-                {{ transaction.date }}
-                {{ transaction.merchant.name }}
-                {{ transaction.tag.name }}
-            </li>
-        {% endfor %}
-    </ul>
-
-    <div>
-        {{ total }}
-    </div>
-
-{% endblock %}
+    <section id="grid-container">
+        
+        <article id="transaction-container">
+            <h2>My Transactions</h2>
+            <ul>
+                {% for transaction in transactions %}
+                <li class="transaction">
+                    <p>{{ transaction.date }}</p>
+                    <div class="merchant-amount">
+                        <p class="merchant-name">{{ transaction.merchant.name }}</p>
+                        <div class="amount">
+                            <p>{{ transaction.amount }}</p>
+                            <p>GBP</p>
+                        </div>
+                    </div>
+                    <p>{{ transaction.tag.name }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </article>
+        
+        <div id="total-container">
+            <h2>Total</h2>
+            <div class="total-amount">
+                <p>{{ total }}</p>
+                <p>GBP</p>
+            </div>
+        </div>
+        <a href="/transactions/new" id="new-transaction">New Transaction</a>    
+    </section>
+    
+    {% endblock %}

@@ -1,0 +1,69 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: rgb(109,218,161);
+    background: linear-gradient(36deg, rgba(109,218,161,1) 0%, rgba(63,112,181,1) 65%, rgba(39,53,126,1) 100%); 
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "header main";
+    font-family: 'Heebo', Arial, Helvetica, sans-serif;
+    color: rgb(4, 19, 39);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(4, 19, 39);
+}
+
+p {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+#main-content {
+    grid-area: main;
+    width: 100%;
+    padding: 3%;
+}
+
+header {
+    height: 100%;
+    background-color: white;
+    grid-area: header;
+    padding: 35px 20px;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.19);
+}
+
+.logo {
+    background-color: blue;
+    height: 32px;
+    margin-bottom: 40px;
+    display: block;
+}
+
+#main-navigation {
+    margin: auto;
+}
+
+#main-navigation > li > a {
+    display: block;
+    padding: 5px 10px 5px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}

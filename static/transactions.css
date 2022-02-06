@@ -1,0 +1,60 @@
+#grid-container {
+    display: grid;
+    grid-template-columns: 400px 200px;
+    grid-template-rows: 1fr 1fr 2fr;
+    column-gap: 50px;
+    margin: 0 auto;
+}
+
+#transaction-container, #total-container {
+    background-color: white;
+}
+
+#transaction-container {
+    padding: 24px 50px;
+    grid-column: 1/2;
+    grid-row: 1/4;
+}
+
+.transaction {
+    margin: 20px auto;
+}
+
+.merchant-name, .amount {
+    font-weight: 600;
+} 
+
+.amount p{
+    display: inline;
+}
+
+.merchant-amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-new {
+    display: flex;
+    flex-direction: column;
+}
+
+#total-container {
+    height: 120px;
+    margin-bottom: 20px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    text-align: center;
+}
+
+.total-amount p {
+    display: inline;
+}
+
+#new-transaction {
+    height: 50px;
+    padding: 15px;
+    text-align: center;
+    background-color: aquamarine;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}

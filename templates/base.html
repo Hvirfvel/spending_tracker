@@ -3,11 +3,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='transactions.css') }}">
     <title>Spending tracker</title>
 </head>
 <body>
-    {% block content %}
-        
-    {% endblock %}
+    <header>
+        <a href="/" class="logo">Logo</a>
+        <nav>
+            <ul id="main-navigation">
+                <li><a href="/transactions">All transactions</a></li>
+                <li><a href="/transactions/new">New transaction</a></li>
+                <li><a href="/merchants">Merchants</a></li>
+                <li><a href="/tags">Tags</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="main-content">
+        {% block content %}
+            
+        {% endblock %}
+    </div>
 </body>
 </html>
