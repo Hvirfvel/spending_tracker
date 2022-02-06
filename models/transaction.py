@@ -5,3 +5,9 @@ class Transaction:
         self.merchant = merchant
         self.tag = tag
         self.id = id
+
+    def get_total(self, transactions):
+        total = 0
+        for transaction in transactions:
+            total += transaction.amount
+        return total
