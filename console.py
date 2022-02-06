@@ -1,9 +1,11 @@
 import pdb
 from models.merchant import Merchant
 from models.tag import Tag
+from models.transaction import Transaction
 
 import repositories.merchant_repository as merchant_repository
 import repositories.tag_repository as tag_repository
+import repositories.transaction_repository as transaction_repository
 
 merchant_repository.delete_all()
 tag_repository.delete_all()
@@ -23,6 +25,11 @@ tags = tag_repository.select_all()
 
 for tag in tags:
     print(tag.__dict__)
+
+transaction_1 = Transaction(14.99, '04/02/2022', merchant_1, tag_1)
+transaction_repository.save(transaction_1)
+
+print(transaction_1.__dict__)
 
 
 pdb.set_trace()
