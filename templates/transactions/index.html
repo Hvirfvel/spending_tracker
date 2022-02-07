@@ -5,6 +5,18 @@
         
         <article id="transaction-container">
             <h2>My Transactions</h2>
+
+            <!-- <form action="">
+                <label for="merchant-filter">Filter by merchant</label>
+                <select name="merchant-filter" id="merchant-filter">
+                    <option value=""></option>
+                    {% for merchant in merchants %}
+                        <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Filter</button>
+            </form> -->
+
             <ul>
                 {% for transaction in transactions_by_date %}
                 <li class="transaction">
