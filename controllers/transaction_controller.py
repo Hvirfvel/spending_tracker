@@ -10,7 +10,8 @@ transactions_blueprint = Blueprint('transactions', __name__)
 def index():
     transactions = transaction_repository.select_all()
     total = Transaction.get_total(transactions)
-    return render_template('transactions/index.html', transactions=transactions, total=total)
+    transactions_by_date = Transaction.sort_by_date(transactions)
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
 
 @transactions_blueprint.route('/transactions/new')
 def new_transaction():

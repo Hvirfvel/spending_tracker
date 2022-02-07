@@ -6,7 +6,7 @@
         <article id="transaction-container">
             <h2>My Transactions</h2>
             <ul>
-                {% for transaction in transactions %}
+                {% for transaction in transactions_by_date %}
                 <li class="transaction">
                     <p>{{ transaction.date }}</p>
                     <div class="merchant-amount">
