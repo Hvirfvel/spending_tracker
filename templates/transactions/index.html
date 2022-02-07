@@ -10,13 +10,13 @@
                 <li class="transaction">
                     <p>{{ transaction.date }}</p>
                     <div class="merchant-amount">
-                        <p class="merchant-name">{{ transaction.merchant.name }}</p>
+                        <p class="merchant-name"><a href="/transactions/merchants{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></p>
                         <div class="amount">
                             <p>{{ transaction.amount_formatted() }}</p>
                             <p>GBP</p>
                         </div>
                     </div>
-                    <p><a href="/transactions/{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
+                    <p><a href="/transactions/tags{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
                 </li>
                 {% endfor %}
             </ul>
