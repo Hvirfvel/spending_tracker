@@ -64,3 +64,16 @@ def transactions_by_tag(tag):
         transaction = Transaction(row['amount'], row['date'], merchant, tag, row['id'])
         transactions.append(transaction)
     return transactions
+
+# Get transactions from merchant
+def transactions_by_merchant(merchant):
+    transactions = []
+
+    sql = "SELECT * FROM transactions WHERE merchant_id = %s"
+    values = [merchant.id]
+    results = run_sql(sql, values)
+    for row in results:
+        tag = tag_repository.select(row['tag_id'])
+        transaction = Transaction(row['amount'], row['date'], merchant, tag, row['id'])
+        transactions.append(transaction)
+    return transactions

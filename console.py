@@ -32,7 +32,10 @@ transaction_repository.save(transaction_1)
 
 print(transaction_1.__dict__)
 
-transactions = transaction_repository.transactions_by_tag(tag_1)
+# transactions = transaction_repository.transactions_by_tag(tag_1)
+# print(transactions)
+
+transactions = transaction_repository.transactions_by_merchant(merchant_1)
 print(transactions)
 
 
