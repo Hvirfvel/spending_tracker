@@ -16,7 +16,7 @@
                             <p>GBP</p>
                         </div>
                     </div>
-                    <p>{{ transaction.tag.name }}</p>
+                    <p><a href="/transactions/{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
                 </li>
                 {% endfor %}
             </ul>

@@ -32,3 +32,11 @@ def create_transaction():
     transaction = Transaction(amount, date, merchant, tag)
     transaction_repository.save(transaction)
     return redirect('/transactions')
+
+@transactions_blueprint.route('/transactions/<id>')
+def show_by_tag(id):
+    tag = tag_repository.select(id)
+    transactions = transaction_repository.transactions_by_tag(tag)
+    total = transaction_helper.get_total(transactions)
+    transactions_by_date = transaction_helper.sort_by_date(transactions)
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)

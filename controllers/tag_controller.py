@@ -28,3 +28,4 @@ def update_tag(id):
     tag = Tag(name, id)
     tag_repository.update(tag)
     return redirect('/tags')
+

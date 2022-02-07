@@ -61,7 +61,6 @@ def transactions_by_tag(tag):
     results = run_sql(sql, values)
     for row in results:
         merchant = merchant_repository.select(row['merchant_id'])
-        tag = tag_repository.select(row['tag_id'])
         transaction = Transaction(row['amount'], row['date'], merchant, tag, row['id'])
         transactions.append(transaction)
     return transactions
