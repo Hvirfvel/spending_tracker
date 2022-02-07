@@ -16,5 +16,4 @@ class Transaction:
         return transaction.date
 
     def sort_by_date(transactions):
-        transactions_by_date = sorted(transactions, key=Transaction.get_date, reverse=True)
-        return transactions_by_date
+        return sorted(transactions, key=Transaction.get_date, reverse=True)

@@ -11,26 +11,26 @@ transaction_repository.delete_all()
 merchant_repository.delete_all()
 tag_repository.delete_all()
 
-merchant_1 = Merchant('Aldi')
-merchant_repository.save(merchant_1)
+# merchant_1 = Merchant('Aldi')
+# merchant_repository.save(merchant_1)
 
-merchants = merchant_repository.select_all()
+# merchants = merchant_repository.select_all()
 
-for merchant in merchants:
-    print(merchant.__dict__)
+# for merchant in merchants:
+#     print(merchant.__dict__)
 
-tag_1 = Tag('Groceries')
-tag_repository.save(tag_1)
+# tag_1 = Tag('Groceries')
+# tag_repository.save(tag_1)
 
-tags = tag_repository.select_all()
+# tags = tag_repository.select_all()
 
-for tag in tags:
-    print(tag.__dict__)
+# for tag in tags:
+#     print(tag.__dict__)
 
-transaction_1 = Transaction(14.99, '04/02/2022', merchant_1, tag_1)
-transaction_repository.save(transaction_1)
+# transaction_1 = Transaction(14.99, '04/02/2022', merchant_1, tag_1)
+# transaction_repository.save(transaction_1)
 
-print(transaction_1.__dict__)
+# print(transaction_1.__dict__)
 
 
 pdb.set_trace()
