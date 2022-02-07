@@ -1,6 +1,9 @@
 from db.run_sql import run_sql
 
 from models.tag import Tag
+from models.transaction import Transaction
+import repositories.merchant_repository as merchant_repository
+import repositories.tag_repository as tag_repository
 
 # Save
 def save(tag):
@@ -47,3 +50,5 @@ def update(tag):
 def delete_all():
     sql = "DELETE FROM tags"
     run_sql(sql)
+
+
