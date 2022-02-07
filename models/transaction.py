@@ -6,6 +6,9 @@ class Transaction:
         self.tag = tag
         self.id = id
 
+    def amount_formatted(self):
+        return '{:.2f}'.format(self.amount)
+
     def get_total(transactions):
         total = 0
         for transaction in transactions:
