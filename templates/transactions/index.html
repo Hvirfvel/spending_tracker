@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section id="grid-container">
+    <main id="grid-container">
         
         <article id="transaction-container">
             <h1>My Transactions</h1>
@@ -41,35 +41,36 @@
             </div>
         </div>
         <a href="/transactions/new" id="new-transaction">New Transaction</a>    
-    </section>
+        
+        <aside id="filter-container">
+            <nav>
+                <h2>Filter by:</h2>
+                <ul>
+                    <li><a href="#">Merchants</a>
+                        <ul class="dropdown">
+                            {% for merchant in merchants %}
+                                <li><a href="">{{ merchant.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="#">Tags</a>
+                        <ul class="dropdown">
+                            {% for tag in tags %}
+                                <li><a href="">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="#">Months</a>
+                        <ul class="dropdown">
+                            {% for month in months %}
+                                <li><a href=""></a>{{ month['name'] }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </main>
 
-    <aside>
-        <nav>
-            <h2>Filter by:</h2>
-            <ul>
-                <li><a href="#">Merchants</a>
-                    <ul class="dropdown">
-                        {% for merchant in merchants %}
-                            <li><a href="">{{ merchant.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li><a href="#">Tags</a>
-                    <ul class="dropdown">
-                        {% for tag in tags %}
-                            <li><a href="">{{ tag.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li><a href="#">Months</a>
-                    <ul class="dropdown">
-                        {% for month in months %}
-                            <li><a href=""></a>{{ month['name'] }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </aside>
     
     {% endblock %}
