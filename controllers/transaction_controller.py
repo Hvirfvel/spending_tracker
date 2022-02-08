@@ -4,6 +4,7 @@ import repositories.transaction_repository as transaction_repository
 import repositories.merchant_repository as merchant_repository
 import repositories.tag_repository as tag_repository
 import helpers.transaction_helper as transaction_helper
+from helpers.months import months
 
 transactions_blueprint = Blueprint('transactions', __name__)
 
@@ -50,7 +51,11 @@ def show_by_merchants(id):
     transactions_by_date = transaction_helper.sort_by_date(transactions)
     return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
 
-
-
+@transactions_blueprint.route('/transactions/month/<number>')
+def show_by_month(number):
+    transactions = transaction_repository.transactions_by_month(number)
+    total = transaction_helper.get_total(transactions)
+    transactions_by_date = transaction_helper.sort_by_date(transactions)
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
     
     
