@@ -34,7 +34,7 @@ def create_transaction():
     transaction_repository.save(transaction)
     return redirect('/transactions')
 
-@transactions_blueprint.route('/transactions/tags<id>')
+@transactions_blueprint.route('/transactions/tags/<id>')
 def show_by_tag(id):
     tag = tag_repository.select(id)
     transactions = transaction_repository.transactions_by_tag(tag)
@@ -42,10 +42,15 @@ def show_by_tag(id):
     transactions_by_date = transaction_helper.sort_by_date(transactions)
     return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
 
-@transactions_blueprint.route('/transactions/merchants<id>')
+@transactions_blueprint.route('/transactions/merchants/<id>')
 def show_by_merchants(id):
     merchant = merchant_repository.select(id)
     transactions = transaction_repository.transactions_by_merchant(merchant)
     total = transaction_helper.get_total(transactions)
     transactions_by_date = transaction_helper.sort_by_date(transactions)
     return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
+
+
+
+    
+    

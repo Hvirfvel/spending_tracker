@@ -7,6 +7,8 @@ import repositories.merchant_repository as merchant_repository
 import repositories.tag_repository as tag_repository
 import repositories.transaction_repository as transaction_repository
 
+from datetime import datetime
+
 transaction_repository.delete_all()
 merchant_repository.delete_all()
 tag_repository.delete_all()
@@ -32,11 +34,26 @@ transaction_repository.save(transaction_1)
 
 print(transaction_1.__dict__)
 
+# new_date = datetime.strptime(transaction_1.date, '%Y-%m-%d')
+# print(new_date.month)
+
+new_date = datetime.strptime(transaction_1.date, '%Y-%m-%d').month
+print(new_date)
+
+
+
 # transactions = transaction_repository.transactions_by_tag(tag_1)
 # print(transactions)
 
-transactions = transaction_repository.transactions_by_merchant(merchant_1)
-print(transactions)
+# transactions = transaction_repository.transactions_by_merchant(merchant_1)
+# print(transactions)
+
+month = 1
+
+
+
+
+print(transaction_repository.transactions_by_month(month)[0].__dict__)
 
 
 pdb.set_trace()

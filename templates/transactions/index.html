@@ -4,12 +4,11 @@
     <section id="grid-container">
         
         <article id="transaction-container">
-            <h2>My Transactions</h2>
+            <h1>My Transactions</h1>
 
-            <!-- <form action="">
-                <label for="merchant-filter">Filter by merchant</label>
-                <select name="merchant-filter" id="merchant-filter">
-                    <option value=""></option>
+            <!-- <form action="/transactions/merchants">
+                <label for="merchant">Filter by merchant</label>
+                <select name="merchant" id="merchant">
                     {% for merchant in merchants %}
                         <option value="{{ merchant.id }}">{{ merchant.name }}</option>
                     {% endfor %}
@@ -22,13 +21,13 @@
                 <li class="transaction">
                     <p>{{ transaction.date }}</p>
                     <div class="merchant-amount">
-                        <p class="merchant-name"><a href="/transactions/merchants{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></p>
+                        <p class="merchant-name"><a href="/transactions/merchants/{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></p>
                         <div class="amount">
                             <p>{{ transaction.amount_formatted() }}</p>
                             <p>GBP</p>
                         </div>
                     </div>
-                    <p><a href="/transactions/tags{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
+                    <p><a href="/transactions/tags/{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
                 </li>
                 {% endfor %}
             </ul>
@@ -43,5 +42,7 @@
         </div>
         <a href="/transactions/new" id="new-transaction">New Transaction</a>    
     </section>
+
+    
     
     {% endblock %}
