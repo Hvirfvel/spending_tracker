@@ -45,22 +45,22 @@
         <aside id="filter-container">
             <nav>
                 <h2>Filter by:</h2>
-                <ul>
-                    <li><a href="#">Merchants</a>
+                <ul class="dropdown-headings">
+                    <li class="filter-category"><a href="#">Merchants</a>
                         <ul class="dropdown">
                             {% for merchant in merchants %}
                                 <li><a href="/transactions/merchants/{{ merchant.id }}">{{ merchant.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="#">Tags</a>
+                    <li class="filter-category"><a href="#">Tags</a>
                         <ul class="dropdown">
                             {% for tag in tags %}
                                 <li><a href="/transactions/tags/{{ tag.id }}">{{ tag.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="#">Months</a>
+                    <li class="filter-category"><a href="#">Months</a>
                         <ul class="dropdown">
                             {% for month in months %}
                                 <li><a href="/transactions/month/{{ month['number'] }}">{{ month['name'] }}</a></li>

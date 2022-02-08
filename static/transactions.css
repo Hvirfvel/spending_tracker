@@ -9,6 +9,9 @@
 
 #transaction-container, #total-container {
     background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19);
+    border-radius: var(--main-border-radius);
+
 }
 
 #transaction-container {
@@ -55,13 +58,57 @@
     height: 50px;
     padding: 15px;
     text-align: center;
-    background-color: aquamarine;
+    background-color: var(--tertiary-color);
     grid-column: 2/3;
     grid-row: 2/3;
+    border-radius: var(--main-border-radius);
 }
 
 #filter-container {
     grid-column: 2/3;
     grid-row: 3/4;
     background-color: white;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19);
+    border-radius: var(--main-border-radius);
+}
+
+li {
+    display: block;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.dropdown {
+    visibility: hidden;
+    /* position: absolute; */
+    display: none;
+    opacity: 0;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.filter-category:active > ul,
+.filter-category:focus-within > ul,
+.dropdown:hover {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+}
+
+.dropdown li {
+    width: 100%;
+    /* clear is for float
+    clear: both; */
+}
+
+.filter-category {
+    margin-top: 1rem;
+    background-color: beige;
+}
+
+.filter-category:hover > a {
+    color: aqua;
 }
