@@ -42,7 +42,9 @@ def show_by_tag(id):
     transactions = transaction_repository.transactions_by_tag(tag)
     total = transaction_helper.get_total(transactions)
     transactions_by_date = transaction_helper.sort_by_date(transactions)
-    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
+    merchants = merchant_repository.select_all()
+    tags = tag_repository.select_all()
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total, merchants=merchants, tags=tags, months=months)
 
 @transactions_blueprint.route('/transactions/merchants/<id>')
 def show_by_merchants(id):
@@ -50,13 +52,17 @@ def show_by_merchants(id):
     transactions = transaction_repository.transactions_by_merchant(merchant)
     total = transaction_helper.get_total(transactions)
     transactions_by_date = transaction_helper.sort_by_date(transactions)
-    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
+    merchants = merchant_repository.select_all()
+    tags = tag_repository.select_all()
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total, merchants=merchants, tags=tags, months=months)
 
 @transactions_blueprint.route('/transactions/month/<number>')
 def show_by_month(number):
     transactions = transaction_repository.transactions_by_month(number)
     total = transaction_helper.get_total(transactions)
     transactions_by_date = transaction_helper.sort_by_date(transactions)
-    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total)
+    merchants = merchant_repository.select_all()
+    tags = tag_repository.select_all()
+    return render_template('transactions/index.html', transactions_by_date=transactions_by_date, total=total, merchants=merchants, tags=tags, months=months)
     
     

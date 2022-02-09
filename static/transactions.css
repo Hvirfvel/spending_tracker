@@ -54,7 +54,7 @@
     justify-content: space-between;
     text-align: center;
     filter: drop-shadow(0 -5px 15px rgba(0,0,0,0.10));
-    background-color: var(--secondary-font-color);
+    background-color: var(--tertiary-color);
 }
 
 .total-amount {
@@ -132,5 +132,5 @@ li:hover {
 }
 
 .filter-category:hover > a {
-    color: aqua;
+    color: var(--tertiary-color);
 }
