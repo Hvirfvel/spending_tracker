@@ -1,29 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <aside>
-        <form action="/tags" method="post">
-            <label for="name">New Tag</label>
-            <input type="text" id="name" name="name" required>
-            <button type="submit">Add Tag</button>
-        </form>
-    </aside>
-    <section>
-        <form action="/tags/{{ tag.id }}" method="post">
-            <label for="updated_name">Change tag name:</label>
-            <input type="text" id="updated_name" name="updated_name" value="{{ tag.name }}" required autofocus>
-            <button type="submit">Update</button>
-        </form>
-    </section>
-    <section>
-        <h2>Current tags</h2>
-        <ul>
-            {% for tag in tags %}
-                <li>
-                    {{ tag.name }}
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
+    <h1 class="merchant-tag-heading">Edit tag</h1>
+    <div class="tag-flex">
+        <section class="edit-section">
+            <form class="edit-form" action="/tags/{{ tag.id }}" method="post">
+                <label for="updated_name">Change tag name:</label>
+                <input type="text" id="updated_name" name="updated_name" value="{{ tag.name }}" required autofocus>
+                <button class="update-button" type="submit">Update</button>
+            </form>
+        </section>
+        <section class="current-section">
+            <h2>Current tags</h2>
+            <ul>
+                {% for tag in tags %}
+                    <li class="current-list">
+                        {{ tag.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
     
 {% endblock %}
