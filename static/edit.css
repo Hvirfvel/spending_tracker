@@ -1,0 +1,33 @@
+.merchant-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-section {
+    background-color: white;
+    width: 330px;
+    padding: 30px;
+    box-shadow: var(--container-shadow);
+    border-radius: var(--main-border-radius);
+    margin-bottom: 1rem;
+}
+
+.edit-form {
+    position: relative;
+}
+
+.edit-form label {
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.edit-form input {
+    width: 150px;
+}
+
+.update-button {
+    padding: 8px 1rem;
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+}
