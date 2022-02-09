@@ -1,0 +1,85 @@
+#new-heading {
+    text-indent: 30px;
+}
+
+.form {
+    width: 330px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--container-shadow);
+    border-radius: var(--main-border-radius);
+}
+
+.form-section {
+    margin-bottom: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form input, select {
+    width: 150px;
+}
+
+.form input:first-child {
+    width: 100px;
+}
+
+span {
+    margin-left: 10px;
+}
+
+button {
+    background-color: var(--tertiary-color);
+    border: none;
+    padding: 0.5rem 0;
+    border-radius: var(--main-border-radius);
+    cursor: pointer;
+    max-width: 200px;
+}
+
+.submit-button {
+    margin: 0 auto;
+    padding: 8px 2rem;
+}
+
+/* merchants - index */
+
+/* #merchant-container {
+    display: flex;
+    flex-direction: column;
+} */
+
+.current-section {
+    background-color: white;
+    width: 330px;
+    float: left;
+    padding: 30px;
+    box-shadow: var(--container-shadow);
+    border-radius: var(--main-border-radius);
+}
+
+.merchant-tag-heading {
+    text-indent: 30px;
+}
+
+.form-section .name-input {
+    width: 200px;
+}
+
+.edit-button {
+    padding: 8px 1rem;
+}
+
+.current-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 2px;
+    cursor: default;
+}
+
+.current-list p {
+    display: inline-block;
+    margin: auto 0;
+}
