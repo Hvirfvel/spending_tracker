@@ -38,8 +38,14 @@ p {
     cursor: default;
 }
 
+
 h1, h2 {
     margin: 0;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 
 #main-content {
@@ -57,10 +63,11 @@ header {
 }
 
 .logo {
-    background-color: var(--tertiary-color);
-    height: 32px;
     margin-bottom: 40px;
     display: block;
+    color: var(--tertiary-color);
+    font-size: 3rem;
+    text-align: center;
 }
 
 #main-navigation > li > a {
