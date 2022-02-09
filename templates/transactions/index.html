@@ -1,75 +1,66 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main id="grid-container">
+    <main class="flex-container">
         
         <article id="transaction-container">
-            <h1>My Transactions</h1>
+            <div id="transaction-heading">
+                <h1>My Transactions</h1>
+            </div>
 
-            <!-- <form action="/transactions/merchants">
-                <label for="merchant">Filter by merchant</label>
-                <select name="merchant" id="merchant">
-                    {% for merchant in merchants %}
-                        <option value="{{ merchant.id }}">{{ merchant.name }}</option>
-                    {% endfor %}
-                </select>
-                <button type="submit">Filter</button>
-            </form> -->
-
-            <ul>
+            <ul id="transaction-ul">
                 {% for transaction in transactions_by_date %}
                 <li class="transaction">
                     <p>{{ transaction.date }}</p>
                     <div class="merchant-amount">
                         <p class="merchant-name"><a href="/transactions/merchants/{{ transaction.merchant.id }}">{{ transaction.merchant.name }}</a></p>
                         <div class="amount">
-                            <p>{{ transaction.amount_formatted() }}</p>
-                            <p>GBP</p>
+                            <p>{{ transaction.amount_formatted() }} GBP</p>
                         </div>
                     </div>
                     <p><a href="/transactions/tags/{{ transaction.tag.id }}">{{ transaction.tag.name }}</a></p>
                 </li>
                 {% endfor %}
             </ul>
+            <section id="total-container">
+                <h2>Total</h2>
+                <p class="total-amount">{{ total }} GBP</p>
+            </section>
         </article>
-        
-        <div id="total-container">
-            <h2>Total</h2>
-            <div class="total-amount">
-                <p>{{ total }}</p>
-                <p>GBP</p>
-            </div>
+
+        <div id="side-content">
+            <a href="/transactions/new" id="new-transaction">New Transaction</a>    
+            
+            <aside id="filter-container">
+                <nav>
+                    <h2>Filter by:</h2>
+                    <ul class="dropdown-headings">
+                        <li class="filter-category"><a href="#">Merchants</a>
+                            <ul class="dropdown">
+                                {% for merchant in merchants %}
+                                    <li><a href="/transactions/merchants/{{ merchant.id }}">{{ merchant.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="filter-category"><a href="#">Tags</a>
+                            <ul class="dropdown">
+                                {% for tag in tags %}
+                                    <li><a href="/transactions/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="filter-category"><a href="#">Months</a>
+                            <ul class="dropdown">
+                                {% for month in months %}
+                                    <li><a href="/transactions/month/{{ month['number'] }}">{{ month['name'] }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
-        <a href="/transactions/new" id="new-transaction">New Transaction</a>    
-        
-        <aside id="filter-container">
-            <nav>
-                <h2>Filter by:</h2>
-                <ul class="dropdown-headings">
-                    <li class="filter-category"><a href="#">Merchants</a>
-                        <ul class="dropdown">
-                            {% for merchant in merchants %}
-                                <li><a href="/transactions/merchants/{{ merchant.id }}">{{ merchant.name }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li class="filter-category"><a href="#">Tags</a>
-                        <ul class="dropdown">
-                            {% for tag in tags %}
-                                <li><a href="/transactions/tags/{{ tag.id }}">{{ tag.name }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li class="filter-category"><a href="#">Months</a>
-                        <ul class="dropdown">
-                            {% for month in months %}
-                                <li><a href="/transactions/month/{{ month['number'] }}">{{ month['name'] }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+
     </main>
 
     
