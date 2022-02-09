@@ -1,10 +1,8 @@
 from db.run_sql import run_sql
 
 from models.merchant import Merchant
-from models.transaction import Transaction
-import repositories.tag_repository as tag_repository
 
-# Save
+
 def save(merchant):
     sql = """
     INSERT INTO 
@@ -17,7 +15,7 @@ def save(merchant):
     merchant.id = results[0]['id']
     return merchant
 
-# Select all
+
 def select_all():
     merchants = []
 
@@ -29,7 +27,7 @@ def select_all():
         merchants.append(merchant)
     return merchants
 
-# Select
+
 def select(id):
     merchant = None
     sql = "SELECT * FROM merchants WHERE id = %s"
@@ -40,13 +38,13 @@ def select(id):
         merchant = Merchant(result['name'], result['id'])
     return merchant
 
-# Update
+
 def update(merchant):
     sql = "UPDATE merchants SET name = %s WHERE id = %s"
     values = [merchant.name, merchant.id]
     run_sql(sql, values)
 
-# Delete all
+
 def delete_all():
     sql = "DELETE FROM merchants"
     run_sql(sql)

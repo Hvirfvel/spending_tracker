@@ -16,42 +16,18 @@ tag_repository.delete_all()
 merchant_1 = Merchant('Aldi')
 merchant_repository.save(merchant_1)
 
-# merchants = merchant_repository.select_all()
-
-# for merchant in merchants:
-#     print(merchant.__dict__)
-
 tag_1 = Tag('Groceries')
 tag_repository.save(tag_1)
-
-# tags = tag_repository.select_all()
-
-# for tag in tags:
-#     print(tag.__dict__)
 
 transaction_1 = Transaction(14.99, '2022-01-27', merchant_1, tag_1)
 transaction_repository.save(transaction_1)
 
 print(transaction_1.__dict__)
 
-# new_date = datetime.strptime(transaction_1.date, '%Y-%m-%d')
-# print(new_date.month)
-
 new_date = datetime.strptime(transaction_1.date, '%Y-%m-%d').month
 print(new_date)
 
-
-
-# transactions = transaction_repository.transactions_by_tag(tag_1)
-# print(transactions)
-
-# transactions = transaction_repository.transactions_by_merchant(merchant_1)
-# print(transactions)
-
 month = 1
-
-
-
 
 print(transaction_repository.transactions_by_month(month)[0].__dict__)
 

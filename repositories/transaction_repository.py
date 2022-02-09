@@ -3,9 +3,7 @@ from models.transaction import Transaction
 import repositories.transaction_repository as transaction_repository
 import repositories.merchant_repository as merchant_repository
 import repositories.tag_repository as tag_repository
-from datetime import datetime
 
-# save
 def save(transaction):
     sql = """
     INSERT INTO transactions 
@@ -23,7 +21,6 @@ def save(transaction):
     return transaction
     
 
-# select all
 def select_all():
     transactions = []
     sql = "SELECT * FROM transactions"
@@ -43,16 +40,11 @@ def select_all():
     return transactions
 
 
-# select
-
-
-
-# delete all
 def delete_all():
     sql = "DELETE FROM transactions"
     run_sql(sql)
 
-# Get transactions from tag
+
 def transactions_by_tag(tag):
     transactions = []
 
@@ -65,7 +57,7 @@ def transactions_by_tag(tag):
         transactions.append(transaction)
     return transactions
 
-# Get transactions from merchant
+
 def transactions_by_merchant(merchant):
     transactions = []
 
@@ -77,6 +69,7 @@ def transactions_by_merchant(merchant):
         transaction = Transaction(row['amount'], row['date'], merchant, tag, row['id'])
         transactions.append(transaction)
     return transactions
+
 
 def transactions_by_month(month):
     transactions = []
