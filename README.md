@@ -13,5 +13,15 @@ The user can create and edit tags and merchants and then add transactions with a
 <b>Extensions</b>
 The user is able to filter the view by merchant, tag or a specific month. 
 
-How to run the app
+<b>Technologies</b>
+<ul>
+<li>SQL</li>
+<li>psycopg2</li>
+<li>Python</li>
+<li>Flask</li>
+<li>HTML</li>
+<li>CSS</li>
+</ul>
+
+<b>How to run the app</b>
 To run the app, clone the GitHub repo to you local git. Open a new terminal and move into the repository, from there you put in ‘flask run’ and press enter giving you a URL starting with 127.0.0.1. Open this URL from the terminal to start the app in the browser.
