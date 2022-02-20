@@ -120,7 +120,14 @@ li:hover {
 .dropdown li a {
     line-height: 1.5rem;
     color: var(--secondary-font-color);
-    
+}
+
+.filter-category ul li a {
+    display: block;
+}
+
+.filter-category .dropdown a:hover {
+    color: black;
 }
 
 .filter-category {
